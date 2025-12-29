@@ -1,0 +1,65 @@
+ :root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: var(--text-primary);
+    background-color: var(--background-primary);
+
+    /* COLORES PRINCIPALES */
+
+    --fondo-principal: #0B1026;
+    /* Fondo principal (Azul medianoche) */
+    --fondo-secundario: #1B243F;
+    /* Fondo secundario (tarjetas/barras) */
+
+    --acento-primario: #A5B4FC;
+    /* Color de acento (Azul índigo claro) */
+    --acento-secundario: #E2E8F0;
+    /* Color de acento secundario / plata brillante */
+
+    --texto-principal: #F8FAFC;
+    /* Texto principal (blanco hueso) */
+    --texto-secundario: #94A3B8;
+    /* Texto secundario (gris azulado) */
+
+
+    /* NAVBAR */
+    --navbar-fondo-contenedor: var(--fondo-secundario);
+    /* Fondo del contenedor de navbar */
+    --navbar-hover-color: var(--acento-primario);
+    /* Hover links */
+    --navbar-texto-nombre: var(--texto-secundario);
+
+
+    /* TITULOS / GRADIENTES */
+    --titulo-gradiente-inicio: var(--acento-secundario);
+    --titulo-gradiente-fin: var(--acento-primario);
+
+
+    /* BORDES */
+    --radio-borde: 12px;
+
+
+    /* MENÚ MÓVIL */
+    --menu-movil-fondo: var(--fondo-secundario);
+
+
+    
+    /* RESET / ESTILOS BASE */
+    *,
+    *::before,
+    *::after {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+    }
+
+    html,
+    body,
+    #root {
+       width: 100%;
+       height: 100%;
+       text-align: center;
+    }
+ }

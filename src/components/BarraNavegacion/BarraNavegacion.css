@@ -1,0 +1,160 @@
+/* ============================= */
+/* GENERAL / DESKTOP ---- BARRA */
+/* ============================= */
+.barra {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding-top: 35px;
+}
+
+.barra__contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 10px;
+  width: auto;
+  background: var(--navbar-fondo-contenedor);
+  border-radius: var(--radio-borde);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+/* Branding */
+.barra__marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Lista de enlaces */
+.barra__lista {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.barra__enlace {
+  position: relative;
+  text-decoration: none;
+  color: var(--texto-principal);
+  font-weight: bold;
+  padding: 12px 13px;
+  border-radius: var(--radio-borde);
+}
+
+.barra__enlace::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.5s ease;
+}
+
+.barra__enlace:hover::after {
+  width: 100%;
+  background-color: var(--acento-primario);
+}
+
+.barra__enlace--activo {
+  color: var(--navbar-hover-color);
+}
+
+/* Input de búsqueda */
+.entrada-con-icono {
+  position: relative;
+  display: flex;
+  margin-left: auto;
+}
+
+.barra__busqueda {
+  background-color: var(--fondo-secundario);
+  color: var(--texto-principal);
+  border: 2px solid var(--acento-secundario);
+  padding: 6px 10px;
+  border-radius: var(--radio-borde);
+  outline: none;
+  width: 250px;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.barra__busqueda:focus {
+  border-color: var(--acento-primario);
+  box-shadow: 0 0 8px var(--acento-primario);
+  background-color: var(--fondo-principal);
+}
+
+.barra__iconoLupa {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+/* Footer oculto por defecto */
+.barra__pie {
+  display: none;
+}
+
+/* ============================= */
+/* TABLET + MÓVIL (<=768px) */
+/* ============================= */
+@media (max-width: 768px) {
+  .barra__lista {
+    display: none;
+  }
+
+  .barra__pie {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--fondo-secundario);
+    padding: 10px 0;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  .barra__lista--movil {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .barra__lista--movil li {
+    text-align: center;
+  }
+}
+
+/* ============================= */
+/* MÓVIL PEQUEÑO (<=480px) */
+/* ============================= */
+@media (max-width: 480px) {
+  .barra {
+    padding-top: 0px;
+  }
+
+  .barra__contenedor {
+    width: 100%;
+    padding: 0 10px;
+    border-radius: 0;
+    gap: 0;
+    justify-content: space-around;
+  }
+}
