@@ -1,7 +1,9 @@
 
 const SobreMi = () => {
     return (
-        <div></div>
+        <div>
+            
+        </div>
     );
 }
 
