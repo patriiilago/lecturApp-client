@@ -10,7 +10,7 @@ const Principal = () => {
             <img src={bgImage} alt="Fondo My Reads" className="principal__imagen" />
 
             <div className="principal__contenedor-titulo">
-                <h1 className="principal__titulo">My Reads</h1>
+                <h1 className="principal__titulo">LecturApp</h1>
             </div>
 
         </header>
