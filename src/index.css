@@ -31,6 +31,8 @@
     /* Hover links */
     --navbar-texto-nombre: var(--texto-secundario);
 
+     --altura-navbar: 150px;
+
 
     /* TITULOS / GRADIENTES */
     --titulo-gradiente-inicio: var(--acento-secundario);

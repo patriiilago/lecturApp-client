@@ -1,0 +1,107 @@
+/* SOBRE MÍ PAGE */
+.pagina-sobre-mi {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--altura-navbar) 2rem;
+}
+
+/* HEADER */
+.encabezado-sobre-mi {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.subtitulo-sobre-mi {
+    font-size: 1rem;
+    color: var(--acento-secundario);
+    margin-top: 1rem;
+}
+
+/* ARTÍCULO */
+.introduccion-sobre-mi p {
+    margin-bottom: 1.2rem;
+}
+
+/* SPAN DESTACADOS */
+.introduccion-sobre-mi span {
+    color: var(--acento-primario);
+    font-weight: 600;
+}
+
+/* SECCIÓN INFORMACIÓN DEL PROYECTO */
+.informacion-proyecto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.item-informacion {
+    background-color: var(--fondo-secundario);
+    border-radius: var(--radio-borde);
+    padding: 1rem;
+    border: 1px solid #2C3E70;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-informacion:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(165, 180, 252, 0.3);
+}
+
+.item-informacion h4 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--acento-secundario);
+}
+
+.item-informacion p {
+    color: var(--acento-primario);
+    text-align: center;
+    font-weight: 700;
+}
+
+.badges {
+    margin: 0;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* BADGES / ETIQUETAS */
+.etiqueta {
+    background-color: var(--acento-primario);
+    color: var(--fondo-principal);
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* ============================= */
+/* TABLET + MÓVIL (<=768px) */
+/* ============================= */
+@media (max-width: 768px) {
+    .pagina-sobre-mi {
+        /* padding: 7rem 2rem; */
+    }
+}
+
+@media (max-width: 600px) {
+    .pagina-sobre-mi {
+        padding: 5rem 2rem;
+    }
+
+    .introduccion-sobre-mi {
+        text-align: center;
+    }
+
+    .item-informacion p {
+        font-size: 0.85rem;
+    }
+}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import './BarraNavegacion.css';
+import './BarraNavegacion.css'
 import libroIcono from './../../assets/iconos/libro-icono.png'
 import BusquedaIcono from './../../assets/iconos/busqueda-icono.png'
 
@@ -135,7 +135,7 @@ const BarraNavegacion = () => {
         </ul>
       </footer>
     </>
-  );
-};
+  )
+}
 
 export default BarraNavegacion

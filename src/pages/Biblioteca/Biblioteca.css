@@ -1,1 +1,28 @@
+.biblioteca {
+  margin: var(--altura-navbar);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
 
+.mensaje-cargando {
+    color: var(--texto-secundario);
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* ANIMACIÓN EN LOS PUNTOS DE CARGANDO */
+.mensaje-cargando::after {
+  content: '...';
+  animation: puntos 1s infinite;
+}
+
+@keyframes puntos {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
