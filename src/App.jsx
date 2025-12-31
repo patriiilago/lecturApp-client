@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 
 import BarraNavegacion from './components/BarraNavegacion/BarraNavegacion'
-import AppRutas from './rutas/AppRutas'
+import AppRutas from './routes/AppRutas'
 
 function App() {
 

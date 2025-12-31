@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 
 import './BarraNavegacion.css'
 import libroIcono from './../../assets/iconos/libro-icono.png'
@@ -8,10 +8,23 @@ import BusquedaIcono from './../../assets/iconos/busqueda-icono.png'
 const BarraNavegacion = () => {
 
   const [terminoBusqueda, setTerminoBusqueda] = useState('')
+  const navigate = useNavigate()
+  const location = useLocation()
 
+
+  // Cada vez que cambie la ruta, reseteamos el input
+  useEffect(() => {
+    setTerminoBusqueda('')
+  }, [location.pathname])
+
+  
   const manejarBusqueda = () => {
-    console.log('Buscando: ', terminoBusqueda);
+    if (terminoBusqueda.trim() !== '') {
+      // Redirige a /resultados con query param
+      navigate(`/resultados?titulo=${encodeURIComponent(terminoBusqueda)}`)
+    }
   }
+
 
   return (
     <>
@@ -86,6 +99,7 @@ const BarraNavegacion = () => {
             />
           </div>
         </div>
+
       </nav>
 
       {/* Footer links móvil-tablet */}

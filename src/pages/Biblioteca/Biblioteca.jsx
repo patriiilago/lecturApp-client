@@ -2,22 +2,30 @@ import { useState, useEffect } from "react"
 
 import './Biblioteca.css'
 import TarjetaLibro from "../../components/TarjetaLibro/TarjetaLibro"
+import { obtenerBestSellers } from './../../service/servicioLibros'
 
 const Biblioteca = () => {
 
+    // Estado para los libros y para el loading
     const [libros, setLibros] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const API = "https://openlibrary.org/search.json?q=bestseller&page=1";
 
     useEffect(() => {
-        fetch(API)
-            .then((res) => res.json())
-            .then((data) => {
-                    setLibros(data.docs);
-                    setLoading(false);
-            })
-    }, [])
+        // Creamos una función async dentro del useEffect
+        const fetchLibros = async () => {
+            try {
+                const data = await obtenerBestSellers() // Llamada al service
+                setLibros(data.docs || []) // Guardamos los libros en el estado
+            } catch (error) {
+                console.error("Error al obtener libros:", error)
+            } finally {
+                setLoading(false) // Ya terminó el fetch
+            }
+        }
+
+        fetchLibros() // Llamamos a la función async
+    }, []) // [] asegura que solo se llame al montar el componente
 
 
     return (
