@@ -3,7 +3,7 @@ import TarjetaLibro from '../TarjetaLibro/TarjetaLibro'
 
 import { useSearchParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { buscarPorTitulo } from '../../service/servicioLibros'
+import { buscarPorTitulo } from '../../service/librosApi'
 
 const ResultadosBusqueda = () => {
 

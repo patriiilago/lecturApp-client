@@ -4,8 +4,8 @@ const SobreMi = () => {
     return (
         <main className="pagina-sobre-mi">
 
-            <header className="encabezado-sobre-mi">
-                <h1>Conociendo a Patri Lago</h1>
+            <header >
+                <h1 className="titulo-sobre-mi">Conociendo a Patri Lago</h1>
                 <p className="subtitulo-sobre-mi">
                     Desarrolladora frontend enfocada en proyectos claros, escalables y usables
                 </p>

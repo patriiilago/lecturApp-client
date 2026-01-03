@@ -5,7 +5,7 @@ import Biblioteca from '../pages/Biblioteca/Biblioteca'
 import SobreMi from '../pages/SobreMi/SobreMi'
 import ResultadosBusqueda from '../components/ResultadosBusqueda/ResultadosBusqueda'
 import LibroDetalle from "../pages/LibroDetalle/LibroDetalle.jsx"
-import PaginaNoEncontrada from '../components/PaginaNoEncontrada/PaginaNoEncontrada.jsx'
+import PaginaNoEncontrada from '../pages/PaginaNoEncontrada/PaginaNoEncontrada.jsx'
 
 function AppRutas() {
 

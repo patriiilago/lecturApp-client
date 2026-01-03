@@ -1,0 +1,32 @@
+.lista-libros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+}
+
+/* Mensaje cuando no hay resultados */
+.mensaje-no-resultados {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--texto-secundario);
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+/* Tablet: 2 columnas por fila */
+@media (max-width: 768px) {
+    .lista-libros {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Móvil: 1 columna por fila */
+@media (max-width: 480px) {
+    .lista-libros {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
