@@ -4,18 +4,24 @@ import MiLista from '../pages/MiLista/MiLista'
 import Biblioteca from '../pages/Biblioteca/Biblioteca'
 import SobreMi from '../pages/SobreMi/SobreMi'
 import ResultadosBusqueda from '../components/ResultadosBusqueda/ResultadosBusqueda'
+import LibroDetalle from "../pages/LibroDetalle/LibroDetalle.jsx"
+import PaginaNoEncontrada from '../components/PaginaNoEncontrada/PaginaNoEncontrada.jsx'
 
+function AppRutas() {
 
-function AppRutas (){
-
-    return(
+    return (
         <Routes>
-            <Route path="/" element={<Principal/>} />
-            <Route path="/mi-lista" element={<MiLista/>} />
-            <Route path="/biblioteca" element={<Biblioteca/>} />
-            <Route path="/sobre-mi" element={<SobreMi/>} />
+            
+            <Route path="/" element={<Principal />} />
+            <Route path="/mi-lista" element={<MiLista />} />
+            <Route path="/biblioteca" element={<Biblioteca />} />
+            <Route path="/libro/:id" element={<LibroDetalle />} />
+            <Route path="/sobre-mi" element={<SobreMi />} />
             <Route path="/resultados" element={<ResultadosBusqueda />} />
-            {/* <Route path="*" element={<NotFoundPage />} /> */}
+
+            {/* Ruta comodín para páginas no encontradas */}
+            <Route path="*" element={<PaginaNoEncontrada />} />
+
         </Routes>
     )
 }

@@ -1,0 +1,92 @@
+/* Contenedor principal */
+.libro-detalle {
+    max-width: 900px;
+    margin: var(--altura-navbar) auto 50px auto;
+    /* centra y deja espacio por navbar */
+    padding: 20px;
+    background-color: var(--fondo-secundario);
+    border-radius: var(--radio-borde);
+    color: var(--texto-principal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+
+.libro-detalle:hover {
+    transform: translateY(-5px);
+}
+
+/* Título del libro */
+.libro-detalle h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(to right,
+            var(--titulo-gradiente-inicio),
+            var(--titulo-gradiente-fin));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+/* Imagen del libro */
+.libro-detalle img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+}
+
+/* Autores */
+.libro-detalle p {
+    font-size: 1rem;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Descripción */
+.libro-detalle p.description {
+    color: var(--texto-principal);
+    text-align: justify;
+    max-width: 700px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .libro-detalle {
+        padding: 15px;
+        margin: 130px 20px;
+    }
+
+    .libro-detalle h1 {
+        font-size: 1.6rem;
+    }
+
+    .libro-detalle img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .libro-detalle {
+        padding: 15px;
+        margin: 100px 20px;
+    }
+
+    .libro-detalle h1 {
+        font-size: 1.4rem;
+    }
+
+    .libro-detalle img {
+        max-width: 250px;
+    }
+
+    .libro-detalle p {
+        font-size: 0.9rem;
+    }
+}

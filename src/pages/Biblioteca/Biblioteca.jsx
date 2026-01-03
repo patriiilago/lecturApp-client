@@ -38,6 +38,7 @@ const Biblioteca = () => {
                 libros.map((libro) => (
                     <TarjetaLibro
                         key={libro.key}
+                        id={libro.key.replace("/works/", "")} // <--- este es el id
                         titulo={libro.title}
                         autores={libro.author_name}
                         portada={
@@ -52,4 +53,4 @@ const Biblioteca = () => {
     )
 }
 
-export default Biblioteca;
+export default Biblioteca

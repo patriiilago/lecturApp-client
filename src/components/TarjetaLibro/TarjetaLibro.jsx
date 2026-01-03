@@ -1,11 +1,19 @@
 import './TarjetaLibro.css'
+import { useNavigate } from 'react-router-dom'
 
-const TarjetaLibro = ({ portada, titulo, autores }) => {
+const TarjetaLibro = ({ id, portada, titulo, autores }) => {
+
+    const navigate = useNavigate()
 
     return (
-        <div className="tarjeta-libro">
+        <
+            div className="tarjeta-libro"
+            onClick={() => navigate(`/libro/${id}`)}
+        >
             {portada ? (
-                <img src={portada} alt={`Portada de ${titulo}`} className="tarjeta-libro__imagen" />
+                <
+                img src={portada} alt={`Portada de ${titulo}`} className="tarjeta-libro__imagen" 
+                />
             ) : (
                 <div className="tarjeta-libro__placeholder">Sin imagen</div>
             )}
