@@ -1,8 +1,44 @@
+/* mensajes se quedan igual */
+.mensaje-cargando {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--texto-secundario);
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+/* ANIMACIÓN EN LOS PUNTOS DE CARGANDO */
+.mensaje-cargando::after {
+  content: '...';
+  animation: puntos 1s infinite;
+}
+
+@keyframes puntos {
+
+  0%,
+  20% {
+    content: '';
+  }
+
+  40% {
+    content: '.';
+  }
+
+  60% {
+    content: '..';
+  }
+
+  80%,
+  100% {
+    content: '...';
+  }
+}
+
 /* Contenedor principal */
 .libro-detalle {
     max-width: 900px;
     margin: var(--altura-navbar) auto 50px auto;
-    /* centra y deja espacio por navbar */
     padding: 20px;
     background-color: var(--fondo-secundario);
     border-radius: var(--radio-borde);
@@ -68,16 +104,47 @@
 }
 
 /* Mensaje temporal */
-.mensaje {
-    grid-column: 1 / -1;
-    text-align: center;
-    background-color: var(--fondo-secundario); 
-    border: 1px solid var(--acento-primario);  
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--fondo-secundario);
+    border: 1px solid var(--acento-primario);
     color: var(--acento-primario);
-    padding: 5px 10px;
+    padding: 8px 16px;
     border-radius: var(--radio-borde);
     font-size: 0.9rem;
+    text-align: center;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    max-width: 90%;
+    animation: fadeInOut 2s forwards;
 }
+
+/* Animación de abajo hacia arriba */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 20px);/* empieza un poco más abajo */
+    }
+
+    10% {
+        opacity: 1;
+        transform: translate(-50%, 0);/* sube a su posición */
+    }
+
+    90% {
+        opacity: 1;
+        transform: translate(-50%, 0);/* se queda visible */
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 20px);/* vuelve a descender al desaparecer */
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .libro-detalle {
@@ -91,6 +158,10 @@
 
     .libro-detalle img {
         max-width: 300px;
+    }
+
+    .toast {
+        bottom: 50px;
     }
 }
 
@@ -110,5 +181,9 @@
 
     .libro-detalle p {
         font-size: 0.9rem;
+    }
+
+    .toast {
+        bottom: 80px;
     }
 }

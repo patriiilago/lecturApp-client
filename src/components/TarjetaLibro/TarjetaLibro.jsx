@@ -12,7 +12,8 @@ const TarjetaLibro = ({ id, portada, titulo, autores }) => {
         >
             {portada ? (
                 <
-                img src={portada} alt={`Portada de ${titulo}`} className="tarjeta-libro__imagen" 
+                img src={portada} 
+                alt={`Portada de ${titulo}`} className="tarjeta-libro__imagen" 
                 />
             ) : (
                 <div className="tarjeta-libro__placeholder">Sin imagen</div>

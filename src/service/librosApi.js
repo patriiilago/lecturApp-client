@@ -1,13 +1,3 @@
-/*
-obtenerBestSellers : search.json?q=bestseller&page=1
-
-buscarPorTitulo() : search.json?q=titulo
-
-filtrarPorAutor() : search.json?author=...
-
-filtrarPorGenero()
-*/
-
 const SEARCH_API = "https://openlibrary.org/search.json"
 const WORKS_API = "https://openlibrary.org/works"
 

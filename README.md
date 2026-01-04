@@ -2,63 +2,63 @@
 
 > **"Donde tus deseos literarios cobran vida."**
 
-LecturApp es una aplicación web diseñada para reencantar la experiencia de buscar y organizar libros. A diferencia de las bases de datos tradicionales, Bookwish ofrece una interfaz inmersiva inspirada en una biblioteca mágica nocturna, donde los usuarios pueden gestionar su propio "grimorio" de lecturas.
+LecturApp es una aplicación web pensada para mejorar la experiencia de búsqueda y gestión de libros. A diferencia de las bases de datos tradicionales, ofrece una interfaz inmersiva inspirada en una biblioteca mágica nocturna, donde los usuarios pueden organizar su propio “grimorio” de lecturas.
 
-Construida con **React** y alimentada por la API de **Open Library**.
+Construida con **React** y alimentada por la **Open Library API**.
+
+---
 
 ## 📖 Descripción del Proyecto
 
-El objetivo de esta aplicación es ofrecer un flujo de usuario fluido y visualmente atractivo para los amantes de la lectura. La aplicación maneja tres estados principales del usuario: **Inspiración** (Landing), **Búsqueda** (Invocación) y **Gestión** (Biblioteca Personal).
+El objetivo de LecturApp es ofrecer un flujo fluido y atractivo para amantes de la lectura. La aplicación maneja tres estados principales del usuario:  
 
-### Funcionalidades Principales (El "Hechizo")
+1. **Inspiración** – Página de bienvenida (Landing).  
+2. **Búsqueda** – Encontrar libros por título, autor o ISBN.  
+3. **Gestión** – Organizar la biblioteca personal con libros pendientes y leídos, además de valorar tus lecturas.
 
-* **🌌 Portada Inmersiva:** Una landing page diseñada para inspirar, con una estética de "polvo de hadas" y biblioteca antigua.
-* **🔍 Buscador Mágico (API Integration):** Conexión en tiempo real con Open Library para buscar libros por título, autor o ISBN.
-* **📚 Gestión de Estados:**
-    * **Lista de Deseos (Pendientes):** Guarda los libros que sueñas leer.
-    * **Grimorio de Leídos:** Marca tus libros completados y muévelos automáticamente de estantería.
-    * **Persistencia:** (Opcional: Si usas LocalStorage menciónalo aquí) Tus libros se guardan en tu navegador.
-* **✨ UI/UX Temática:** Diseño responsive con modo oscuro por defecto ("Azul Medianoche" y "Plata Brillante").
+### Funcionalidades Clave
+
+* **🌌 Portada Inmersiva:** Landing page inspiradora con estética de biblioteca antigua y elementos mágicos.  
+* **🔍 Buscador en Tiempo Real:** Integración con Open Library para buscar libros por distintos criterios.  
+* **📚 Gestión de Libros:**
+  * **Lista de Deseos (Pendientes):** Guarda libros que deseas leer.  
+  * **Grimorio de Leídos:** Marca libros como leídos y cambia su estado visualmente.  
+  * **Valoración:** Puedes valorar cada libro con hasta 5 estrellas.  
+  * **Persistencia Automática:** Todos los cambios se guardan en LocalStorage.  
+* **✨ UI/UX Moderna y Temática:** Diseño responsive con modo oscuro por defecto, animaciones suaves y toasts informativos.
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
-Este proyecto fue construido priorizando la modularidad y el uso de hooks modernos.
-
-* **Frontend:** React (v18)
-* **Enrutamiento:** React Router v6 (SPA)
-* **Peticiones HTTP:** Fetch API (Nativo)
-* **Estilos:** CSS3 Moderno (Grid, Flexbox, Variables CSS para la paleta de colores)
-* **API Externa:** [Open Library API](https://openlibrary.org/developers/api)
+* **Frontend:** React (v18) con hooks modernos.  
+* **Routing:** React Router v6 (SPA).  
+* **Peticiones HTTP:** Fetch API.  
+* **Estilos:** CSS3 moderno (Grid, Flexbox, Variables CSS para paleta de colores).  
+* **API:** [Open Library API](https://openlibrary.org/developers/api).  
 
 ---
 
-
 ## 🗺️ Estructura de Rutas
 
-La navegación se gestiona a través de `react-router-dom`:
-
-| Ruta | Componente | Función Mágica |
-|------|------------|----------------|
-| `/` | `Principal` | Portada de la app, bienvenida y enlaces principales. |
-| `/mi-lista` | `MiLista` | Panel de gestión de tus libros: pendientes y leídos. |
-| `/biblioteca` | `Biblioteca` | Muestra los libros disponibles (Best Sellers / colección general). |
-| `/libro/:id` | `LibroDetalle` | Vista detallada del libro seleccionado, con portada, autores y descripción. |
-| `/sobre-mi` | `SobreMi` | Información sobre el autor de la app o el proyecto. |
-| `/resultados` | `ResultadosBusqueda` | Página que muestra los resultados de la búsqueda desde la API de Open Library. |
-| `*` | `PaginaNoEncontrada` | Ruta comodín: muestra un mensaje cuando el usuario accede a una ruta inexistente. |
+| Ruta | Componente | Descripción |
+|------|------------|------------|
+| `/` | `Principal` | Landing page con bienvenida y enlaces principales. |
+| `/mi-lista` | `MisLibros` | Gestión de libros: mostrar lista, cambiar estado (pendiente/leído), valorar y eliminar. |
+| `/biblioteca` | `Biblioteca` | Lista de libros disponibles (Best Sellers) con enlace a detalle. |
+| `/libro/:id` | `LibroDetalle` | Página de detalle del libro. Reutilizable desde Biblioteca y Resultados de Búsqueda, carga toda la info según `id`. |
+| `/resultados` | `ResultadosBusqueda` | Página que muestra resultados de la búsqueda desde Open Library. |
+| `/sobre-mi` | `SobreMi` | Información sobre la autora y el proyecto. |
+| `*` | `PaginaNoEncontrada` | Ruta comodín para URLs inexistentes. |
 
 ---
 
 ## 🔮 Roadmap y Mejoras Futuras
 
-Este es un MVP (Producto Mínimo Viable). Las siguientes características están planeadas para futuras versiones:
-
-* [ ] **Migración a Axios:** Para una gestión de intercelptores y errores más robusta.
-* [ ] **Sistema de Calificación:** Añadir puntuación (1-5 estrellas) a los libros leídos.
-* [ ] **Persistencia en la Nube:** Integración con Firebase/Supabase para guardar cuentas de usuario.
-* [ ] **Notas de Lectura:** Permitir añadir reseñas personales en la ficha del libro.
+* [ ] **Migración a Axios:** Gestión de peticiones más robusta.  
+* [ ] **Persistencia en la nube:** Integración con Firebase/Supabase para guardar datos de usuario.  
+* [ ] **Notas de Lectura:** Permitir añadir reseñas personales por libro.  
+* [ ] **Sistema de calificación avanzado:** Gráficos y métricas de tus lecturas.  
 
 ---
 

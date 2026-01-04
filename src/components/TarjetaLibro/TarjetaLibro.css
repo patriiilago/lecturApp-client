@@ -2,7 +2,6 @@
   background-color: var(--fondo-principal);
   border-radius: var(--radio-borde);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -36,8 +35,7 @@
 }
 
 .tarjeta-libro__contenido {
-  padding: 0.8rem;
-  height: 120px;
+  height: 100px;
 }
 
 .tarjeta-libro__titulo {
@@ -47,8 +45,7 @@
   color: var(--acento-primario);
 
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  /* máximo 2 líneas */
+  -webkit-line-clamp: 2;/* máximo 2 líneas */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -60,8 +57,7 @@
   text-align: center;
 
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  /* máximo 2 líneas */
+  -webkit-line-clamp: 2;/* máximo 2 líneas */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

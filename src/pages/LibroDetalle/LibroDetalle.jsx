@@ -40,47 +40,46 @@ const LibroDetalle = () => {
             cover: libro.covers ? libro.covers[0] : null,
             description: libro.description,
             authors: autores
-        })
-
-        setMensaje(`${libro.title} ha sido añadido a tu lista ✅`)
-
-        // Borrar mensaje después de 2 segundos
-        setTimeout(() => setMensaje(""), 2000)
-
+        },
+            (mensaje) => {
+                setMensaje(mensaje); 
+                setTimeout(() => setMensaje(""), 2000); 
+            }
+        )
     }
 
-    if (!libro) return <p>Cargando...</p> // mientras carga
+    if (!libro) return <p className="mensaje-cargando">Cargando...</p>
 
 
     return (
+        <>
+            {mensaje && <p className="toast">{mensaje}</p>}
 
-        <div className="libro-detalle">
+            <div className="libro-detalle">
+                <h1>{libro.title}</h1>
+                {libro.covers && libro.covers.length > 0 && (
+                    <img
+                        src={`https://covers.openlibrary.org/b/id/${libro.covers[0]}-L.jpg`}
+                        alt={libro.title}
+                    />
+                )}
+                {libro.description && (
+                    <p>
+                        {typeof libro.description === 'string'
+                            ? libro.description
+                            : libro.description.value}
+                    </p>
+                )}
+                {autores.length > 0 && (
+                    <p>Autor(es): {autores.join(', ')}</p>
+                )}
 
-            <h1>{libro.title}</h1>
-            {libro.covers && libro.covers.length > 0 && (
-                <img
-                    src={`https://covers.openlibrary.org/b/id/${libro.covers[0]}-L.jpg`}
-                    alt={libro.title}
-                />
-            )}
-            {libro.description && (
-                <p>
-                    {typeof libro.description === 'string'
-                        ? libro.description
-                        : libro.description.value}
-                </p>
-            )}
-            {autores.length > 0 && (
-                <p>Autor(es): {autores.join(', ')}</p>
-            )}
+                <button className='btn-anhadir' onClick={handleAddToList}>
+                    Añadir a mi lista
+                </button>
+            </div>
 
-            {mensaje && <p className="mensaje">{mensaje}</p>}
-            
-            <button className='btn-anhadir' onClick={handleAddToList}>
-                Añadir a mi lista
-            </button>
-
-        </div>
+        </>
     )
 }
 

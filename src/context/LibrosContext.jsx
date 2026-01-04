@@ -1,49 +1,69 @@
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
 
-/*
-  1. Creamos el Context (la “caja” donde guardaremos la info)
-*/
+// Creamos el Context (la “caja” donde guardaremos la info)
+
 export const LibrosContext = createContext()
 
-/*
-  2. Creamos el Provider (el que distribuye la información a los componentes)
-*/
+// Creamos el Provider (el que distribuye la información a los componentes)
 export const LibrosProvider = ({ children }) => {
 
-  /*
-    3. Estado global de libros.
-       Lo inicializamos leyendo localStorage para que persista al recargar.
-  */
   const [listaLibros, setListaLibros] = useState(() => {
-    return JSON.parse(localStorage.getItem("listaLibros")) || [];
+    return JSON.parse(localStorage.getItem("listaLibros")) || []
   })
 
-  /*
-    4. Función para añadir un libro a la lista
-  */
-  const addLibro = (libro) => {
-    const nuevaLista = [...listaLibros, libro]
-    setListaLibros(nuevaLista)
-    localStorage.setItem("listaLibros", JSON.stringify(nuevaLista))
+  // Guardar automáticamente en localStorage cada vez que listaLibros cambie
+  useEffect(() => {
+    localStorage.setItem("listaLibros", JSON.stringify(listaLibros))
+  }, [listaLibros])
+
+  // Añadir libro (con estado y valoración por defecto)
+  const addLibro = (libro, callback) => {
+    const existe = listaLibros.some(item => item.id === libro.id)
+    if (!existe) {
+      const libroConExtras = {
+        ...libro,
+        estado: 'pendiente', // pendiente o leido
+        valoracion: 0,       // 0 a 5
+      }
+      const nuevaLista = [...listaLibros, libroConExtras]
+      setListaLibros(nuevaLista)
+      if (callback) callback(`${libro.title} ha sido añadido a tus libros.`)
+    } else {
+      if (callback) callback(`${libro.title} ya está en tus libros.`)
+    }
   }
 
-  /*
-    5. Función para eliminar un libro de la lista
-  */
+
+  // Eliminar libro
   const removeLibro = (id) => {
-    const nuevaLista = listaLibros.filter(libro => libro.id !== id)
-    setListaLibros(nuevaLista)
-    localStorage.setItem("listaLibros", JSON.stringify(nuevaLista))
+    setListaLibros(prev => prev.filter(libro => libro.id !== id))
   }
 
-  /*
-    6. Provider expone datos y funciones para que los consuman otros componentes
-  */
+  // Cambiar estado: pendiente o leído
+  const cambiarEstado = (id, nuevoEstado) => {
+    setListaLibros(prev =>
+      prev.map(libro =>
+        libro.id === id ? { ...libro, estado: nuevoEstado } : libro
+      )
+    )
+  }
+
+  // Valorar libro: estrellas de 1 a 5
+  const valorarLibro = (id, estrellas) => {
+    setListaLibros(prev =>
+      prev.map(libro =>
+        libro.id === id ? { ...libro, valoracion: estrellas } : libro
+      )
+    )
+  }
+
   return (
     <LibrosContext.Provider value={{
       listaLibros,
       addLibro,
-      removeLibro
+      removeLibro,
+      cambiarEstado,
+      valorarLibro
     }}>
       {children}
     </LibrosContext.Provider>

@@ -51,12 +51,12 @@ const BarraNavegacion = () => {
             </li>
             <li>
               <NavLink
-                to="/mi-lista"
+                to="/mis-libros"
                 className={({ isActive }) =>
                   `barra__enlace ${isActive ? 'barra__enlace--activo' : ''}`
                 }
               >
-                Mi lista
+                Mis libros
               </NavLink>
             </li>
             <li>
@@ -118,12 +118,12 @@ const BarraNavegacion = () => {
           </li>
           <li>
             <NavLink
-              to="/mi-lista"
+              to="/mis-libros"
               className={({ isActive }) =>
                 `barra__enlace ${isActive ? 'barra__enlace--activo' : ''}`
               }
             >
-              Mi lista
+              Mis libros
             </NavLink>
           </li>
           <li>

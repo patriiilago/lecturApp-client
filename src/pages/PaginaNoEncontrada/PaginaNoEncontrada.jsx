@@ -1,5 +1,5 @@
 import './PaginaNoEncontrada.css'
-import libro from '../../assets/iconos/libro-perdido2.png'
+import libro from '../../assets/iconos/libro-perdido.png'
 
 import { Link } from 'react-router-dom'
 
