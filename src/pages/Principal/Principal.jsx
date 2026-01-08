@@ -1,6 +1,6 @@
 import './Principal.css'
 
-import bgImage from '../../../src/assets/images/myreads-bg-home.png'
+import bgImage from '../../../src/assets/images/myreads-bg-home.webp'
 
 const Principal = () => {
 
